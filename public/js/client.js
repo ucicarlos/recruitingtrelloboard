@@ -148,6 +148,8 @@ var boardButtonCallback = function(t){
             url: './jobposition.html', // The URL to load for the iframe
             args: { text: 'Hello' }, // Optional args to access later with t.arg('text') on './jobposition.html'
             accentColor: '#026aa7', // Optional color for the modal header
+              width: '80%',
+              background: '#fff',
             height: 300, // Initial height for iframe; not used if fullscreen is true
             fullscreen: true, // Whether the modal should stretch to take up the whole screen
             callback: () => console.log('Goodbye.'), // optional function called if user closes modal (via `X` or escape)
@@ -190,6 +192,7 @@ var boardButtonCallback = function(t){
             return t.modal({
                 url: './newrecruit.html', // The URL to load for the iframe
                 args: { text: 'Hello' }, // Optional args to access later with t.arg('text') on './jobposition.html'
+                width: '80%',
                 accentColor: '#026aa7', // Optional color for the modal header
                 height: 300, // Initial height for iframe; not used if fullscreen is true
                 fullscreen: true, // Whether the modal should stretch to take up the whole screen
