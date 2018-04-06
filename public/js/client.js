@@ -79,6 +79,7 @@ t.getAll();
 var GLITCH_ICON = 'https://cdn.glitch.com/2442c68d-7b6d-4b69-9d13-feab530aa88e%2Fglitch-icon.svg?1489773457908';
 var GRAY_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-gray.svg';
 var WHITE_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-white.svg';
+var RECRUIT_ICON = 'https://cdnjs.cloudflare.com/ajax/libs/topcoat-icons/0.1.0/svg/plus.svg';
 
 var randomBadgeColor = function() {
   return ['green', 'yellow', 'red', 'none'][Math.floor(Math.random() * 4)];
@@ -317,7 +318,7 @@ TrelloPowerUp.initialize({
     return [{
       // we can either provide a button that has a callback function
       // that callback function should probably open a popup, overlay, or boardBar
-      icon: WHITE_ICON,
+      icon: RECRUIT_ICON,
       text: 'Recruiting',
       callback: boardButtonCallback
     }/*, {
