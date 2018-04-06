@@ -318,16 +318,17 @@ TrelloPowerUp.initialize({
       // we can either provide a button that has a callback function
       // that callback function should probably open a popup, overlay, or boardBar
       icon: WHITE_ICON,
-      text: 'Popup',
+      text: 'Recruiting',
       callback: boardButtonCallback
-    }, {
+    }/*, {
       // or we can also have a button that is just a simple url
       // clicking it will open a new tab at the provided url
       icon: WHITE_ICON,
       text: 'URL',
       url: 'https://trello.com/inspiration',
       target: 'Inspiring Boards' // optional target for above url
-    }];
+    }*/
+    ];
   },
   'card-badges': function(t, options){
     return getBadges(t);
@@ -339,13 +340,14 @@ TrelloPowerUp.initialize({
       icon: GRAY_ICON, // don't use a colored icon here
       text: 'Open Popup',
       callback: cardButtonCallback
-    }, {
+    }/*, {
       // but of course, you could also just kick off to a url if that's your thing
       icon: GRAY_ICON,
       text: 'Just a URL',
       url: 'https://developers.trello.com',
       target: 'Trello Developer Site' // optional target for above url
-    }];
+    }*/
+    ];
   },
   'card-detail-badges': function(t, options) {
     return getBadges(t);
