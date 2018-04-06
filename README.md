@@ -1,2 +1,3 @@
-# recruitingtrelloboard
-recruitingtrelloboard aim to help companies to use trello for recruiting purposes
+# Glitch Hosted Recruiting Trello board Power-Up 🚀
+
+Hey there 👋
