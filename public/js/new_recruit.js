@@ -10,28 +10,8 @@ window.contact.addEventListener('submit', function(event){
   event.preventDefault();
   t.board('id', 'name')
     .then(function (board) {
-      console.log(board);
-      console.log(JSON.stringify(board, null, 2));
-      let name = window.fullName.value;
-      let email = window.email.value;
-      let phone = window.phone.value;
       let comments = window.comments.value;
-      let title = name + " | " + email + " | " + phone;
-      console.log(title);
-
-      // var options = { method: 'POST',
-      //   url: 'https://api.trello.com/1/lists',
-      //   qs:
-      //     { name: title,
-      //       idBoard: board.id,
-      //       key: '805550e507939ed01e3dd28d0d55f61a',
-      //       token: 'f1635aff34517609c4f7c1ca29c2c75116fb56282fd9c3ea35028dbbf9d1e4bd' } };
-      //
-      // request(options, function (error, response, body) {
-      //   if (error) throw new Error(error);
-      //   t.closeModal();
-      //   console.log(body);
-      // });
+      let title = window.fullName.value + " | " + window.email.value + " | " + window.phone.value;
 
       xhr.addEventListener("readystatechange", function () {
         if (this.readyState === this.DONE) {
@@ -39,16 +19,9 @@ window.contact.addEventListener('submit', function(event){
           t.closeModal();
         }
       });
-
       xhr.open("POST", "https://api.trello.com/1/lists?name="+ title + "&idBoard=" + board.id + "&key=805550e507939ed01e3dd28d0d55f61a&token=f1635aff34517609c4f7c1ca29c2c75116fb56282fd9c3ea35028dbbf9d1e4bd");
-
       xhr.send(data);
     });
-
-  // return t.set('card', 'shared', 'estimate', window.estimateSize.value)
-  //   .then(function(){
-  //     t.closeModal();
-  //   });
 });
 
 t.render(function(){
