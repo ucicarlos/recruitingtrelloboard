@@ -153,7 +153,7 @@ var boardButtonCallback = function(t){
             height: 600, // Initial height for iframe; not used if fullscreen is true
             fullscreen: true, // Whether the modal should stretch to take up the whole screen
             callback: () => console.log('Goodbye.'), // optional function called if user closes modal (via `X` or escape)
-            title: 'Hello, Modal!', // Optional title for modal header
+            title: 'Job Position!', // Optional title for modal header
             // You can add up to 3 action buttons on the modal header - max 1 on the right side.
             actions: [{
               icon: GRAY_ICON,
@@ -197,7 +197,7 @@ var boardButtonCallback = function(t){
                 height: 300, // Initial height for iframe; not used if fullscreen is true
                 fullscreen: true, // Whether the modal should stretch to take up the whole screen
                 callback: () => console.log('Goodbye.'), // optional function called if user closes modal (via `X` or escape)
-                title: 'Hello, Modal!', // Optional title for modal header
+                title: 'Add New Recruit!', // Optional title for modal header
                 // You can add up to 3 action buttons on the modal header - max 1 on the right side.
                 actions: [{
                 icon: GRAY_ICON,

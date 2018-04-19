@@ -14,6 +14,7 @@ window.contact.addEventListener('submit', function (event) {
   xhr.addEventListener("readystatechange", function () {
     if (this.readyState === this.DONE) {
       console.log(this.responseText);
+      t.closeModal();
     }
   });
 
