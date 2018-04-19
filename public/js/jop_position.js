@@ -8,7 +8,7 @@ var xhr = new XMLHttpRequest();
 window.contact.addEventListener('submit', function (event) {
   // Stop the browser trying to submit the form itself.
   event.preventDefault();
-  let idList = window.recruit.id;
+  let idList = window.recruit.value;
   let date = window.dueDate.value;
   let description = "Job Assigned: " + window.jobPosition.value + ", Company: " + window.company.value;
   xhr.addEventListener("readystatechange", function () {
