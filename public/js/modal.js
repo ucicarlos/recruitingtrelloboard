@@ -7,9 +7,17 @@ var t = TrelloPowerUp.iframe();
 window.contact.addEventListener('submit', function(event){
   // Stop the browser trying to submit the form itself.
   event.preventDefault();
-  let boardId = t.get('board', 'shared', 'myKey');
+  t.get('board', 'shared', 'myKey').then(function (board) {
+    console.log(board);
+    let name = window.fullName.value;
+    let email = window.email.value;
+    let phone = window.phone.value;
+    let comments = window.comments.value;
+    let title = name + " | " + email + " | " + phone;
+    console.log(title);
+  });
   console.log(boardId);
-  let name = window.name.value;
+  let name = window.fullName.value;
   let email = window.email.value;
   let phone = window.phone.value;
   let comments = window.comments.value;
