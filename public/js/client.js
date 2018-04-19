@@ -150,7 +150,7 @@ var boardButtonCallback = function(t){
             accentColor: '#425381', // Optional color for the modal header
               width: '80%',
               background: '#fff',
-            height: 300, // Initial height for iframe; not used if fullscreen is true
+            height: 600, // Initial height for iframe; not used if fullscreen is true
             fullscreen: false, // Whether the modal should stretch to take up the whole screen
             callback: () => console.log('Goodbye.'), // optional function called if user closes modal (via `X` or escape)
             title: 'Hello, Modal!', // Optional title for modal header
