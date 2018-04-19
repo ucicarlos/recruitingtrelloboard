@@ -1,19 +1,42 @@
 <html>
-  <head>
-    <link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css">
-    <link rel="stylesheet" href="./css/modal.css">
-    <script src="https://p.trellocdn.com/power-up.min.js"></script>
-  </head>
-  <body>
-    <div id="content">
-      <h2>Tips for using t.modal()</h2>
-      <hr/>
-      <ol>
-        <li>You should only call t.modal() as a response to a user action, such as clicking a button.</li>
-        <li>Try to use t.popup() when possible instead of t.modal() as it helps to better maintain context.</li>
-        <li>Try to get your modal to load and render as quickly as possible.</li>
-      </ol>
-    </div>
-    <script src="./js/modal.js"></script>
-  </body>
+<head>
+  <link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css">
+  <link rel="stylesheet" href="./css/modal.css">
+  <script src="https://p.trellocdn.com/power-up.min.js"></script>
+</head>
+<body>
+<!--<div id="content">-->
+<!--<h2>Tips for using t.modal()</h2>-->
+<!--<hr/>-->
+
+<!--<ol>-->
+<!--<li>You should only call t.modal() as a response to a user action, such as clicking a button.</li>-->
+<!--<li>Try to use t.popup() when possible instead of t.modal() as it helps to better maintain context.</li>-->
+<!--<li>Try to get your modal to load and render as quickly as possible.</li>-->
+<!--</ol>-->
+<!--</div>-->
+<div class="container">
+  <form id="contact">
+    <h3>Add New Recruit</h3>
+    <h4>Blue Ocean Technology</h4>
+    <fieldset>
+      <input id="name" placeholder="Full Name" type="text" tabindex="1" required autofocus>
+    </fieldset>
+    <fieldset>
+      <input id="email" placeholder="Email Address" type="email" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+      <input id="phone" placeholder="Phone Number" type="tel" tabindex="3" required>
+    </fieldset>
+    <fieldset>
+      <textarea id="comments" placeholder="Type any Comments here...." tabindex="5"></textarea>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Saving">Save</button>
+    </fieldset>
+    <p class="copyright">Designed by <a href="https://blueoceantech.us" target="_blank" title="BlueOceanTech">Blue Ocean Technology</a></p>
+  </form>
+</div>
+<script src="./js/modal.js"></script>
+</body>
 </html>
