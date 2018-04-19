@@ -31,7 +31,15 @@ t.render(function(){
   // stored with t.set()
   return t.lists('all')
     .then(function(lists){
-      console.log(window.jobPosition);
+      let select = window.recruit;
+      lists.forEach(function (recruit) {
+        let option = document.createElement('option');
+        option.value = recruit.split(' | ')[1];
+        option.innerHTML = recruit.split(' | ')[0];
+        select.appendChild(opt);
+      });
+
+      console.log(window.recruit);
       console.log(lists);
     })
 });
