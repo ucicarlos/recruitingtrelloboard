@@ -29,4 +29,9 @@ t.render(function(){
   // and then called each time something changes that
   // you might want to react to, such as new data being
   // stored with t.set()
+  return t.lists('all')
+    .then(function(lists){
+      console.log(window.jobPosition);
+      console.log(lists);
+    })
 });
