@@ -16,13 +16,6 @@ window.contact.addEventListener('submit', function(event){
     let title = name + " | " + email + " | " + phone;
     console.log(title);
   });
-  console.log(boardId);
-  let name = window.fullName.value;
-  let email = window.email.value;
-  let phone = window.phone.value;
-  let comments = window.comments.value;
-  let title = name + " | " + email + " | " + phone;
-  console.log(title);
 
   // return t.set('card', 'shared', 'estimate', window.estimateSize.value)
   //   .then(function(){
