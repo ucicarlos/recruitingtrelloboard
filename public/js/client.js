@@ -145,7 +145,7 @@ var boardButtonCallback = function(t){
       {
         callback: function(t){
           return t.modal({
-            url: './jobposition.html', // The URL to load for the iframe
+            url: './job_position.html', // The URL to load for the iframe
             args: { text: 'Hello' }, // Optional args to access later with t.arg('text') on './jobposition.html'
             accentColor: '#425381', // Optional color for the modal header
               width: '80%',
@@ -190,7 +190,7 @@ var boardButtonCallback = function(t){
         text: 'Add new recruit',
         callback: function(t){
             return t.modal({
-                url: './newrecruit.html', // The URL to load for the iframe
+                url: './new_recruit.html', // The URL to load for the iframe
                 args: { text: 'Hello' }, // Optional args to access later with t.arg('text') on './jobposition.html'
                 width: '80%',
                 accentColor: '#425381', // Optional color for the modal header
