@@ -172,7 +172,7 @@ var boardButtonCallback = function(t){
             }],
           })
         },
-          text: 'Add Job position'
+          text: 'New Job position'
       }/*,
       {
         text: 'Add new recruit',
