@@ -34,9 +34,9 @@ t.render(function(){
       let select = window.recruit;
       lists.forEach(function (recruit) {
         let option = document.createElement('option');
-        option.value = recruit.split(' | ')[1];
-        option.innerHTML = recruit.split(' | ')[0];
-        select.appendChild(opt);
+        option.value = recruit.id;
+        option.innerHTML = recruit.name.split(' | ')[0];
+        select.appendChild(option);
       });
 
       console.log(window.recruit);
