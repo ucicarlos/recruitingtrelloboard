@@ -7,8 +7,8 @@ var t = TrelloPowerUp.iframe();
 window.contact.addEventListener('submit', function(event){
   // Stop the browser trying to submit the form itself.
   event.preventDefault();
-  t.get('board', 'shared', 'myKey').then(function (board) {
-    console.log(board);
+  t.get('board', 'shared', 'myKey').then(function (data) {
+    console.log(JSON.stringify(data, null, 2));
     let name = window.fullName.value;
     let email = window.email.value;
     let phone = window.phone.value;
