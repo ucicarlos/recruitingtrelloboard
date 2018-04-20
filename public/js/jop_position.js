@@ -11,25 +11,28 @@ window.contact.addEventListener('submit', function (event) {
   t.get('member', 'private', 'token')
   // Or if you needed to set/get a non-Trello secret token, like an oauth token, you could
   // use t.storeSecret('key', 'value') and t.loadSecret('key')
-    .then(function(token){
-      if(token){
-        t.board('id', 'name')
-          .then(function (board) {
-            let title = window.jobPosition.value + " | " + window.dueDate.value + " | " + window.company.value;
+    .then(function (token) {
+      if (token) {
+        t.get('board', 'shared', 'myKey')
+          .then(function (data) {
+            console.log(JSON.stringify(data, null, 2));
+            t.board('id', 'name')
+              .then(function (board) {
+                let title = window.jobPosition.value + " | " + window.dueDate.value + " | " + window.company.value;
 
-            xhr.addEventListener("readystatechange", function () {
-              if (this.readyState === this.DONE) {
-                t.closeModal();
-              }
-            });
-            xhr.open("POST", "https://api.trello.com/1/lists?name="+ title + "&idBoard=" + board.id + "&key=805550e507939ed01e3dd28d0d55f61a&token="+token);
-            xhr.send(data);
+                xhr.addEventListener("readystatechange", function () {
+                  if (this.readyState === this.DONE) {
+                    t.closeModal();
+                  }
+                });
+                xhr.open("POST", "https://api.trello.com/1/lists?name=" + title + "&idBoard=" + board.id + "&key=" + data + "&token=" + token);
+                xhr.send(data);
+              });
           });
       }
     })
 
 });
-
 
 
 t.render(function () {
