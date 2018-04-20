@@ -36,6 +36,6 @@ t.render(function(){
         select.appendChild(option);
       });
     }).then(function () {
-      return t.sizeTo('#content1');
+      return t.sizeTo('#contact');
     })
 });
