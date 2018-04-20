@@ -10,7 +10,6 @@ window.contact.addEventListener('submit', function (event) {
   event.preventDefault();
   t.board('id', 'name')
     .then(function (board) {
-      let comments = window.comments.value;
       let title = window.jobPosition.value + " | " + window.dueDate.value + " | " + window.company.value;
 
       xhr.addEventListener("readystatechange", function () {
