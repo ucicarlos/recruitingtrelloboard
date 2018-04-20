@@ -5,20 +5,28 @@
     <script src="https://p.trellocdn.com/power-up.min.js"></script>
 </head>
 <body>
-<div class="container">
+<div class="container1">
     <form id="contact">
         <h3>Add New Recruit</h3>
         <h4>Blue Ocean Technology</h4>
         <fieldset>
+        <select id="jobPosition">
+        </select>
+        </fieldset>
+        <fieldset>
+            <label for="jobPosition">Full Name</label>
             <input id="fullName" placeholder="Full Name" type="text" tabindex="1" required autofocus>
         </fieldset>
         <fieldset>
+            <label for="email">Email Address</label>
             <input id="email" placeholder="Email Address" type="email" tabindex="2" required>
         </fieldset>
         <fieldset>
-            <input id="phone" placeholder="Phone Number" type="tel" tabindex="3" required>
+            <label for="phone">Phone Number</label>
+            <input id="phone" placeholder="Phone Number" type="number" tabindex="3" required>
         </fieldset>
         <fieldset>
+            <label for="comments">Comments</label>
             <textarea id="comments" placeholder="Type any Comments here...." tabindex="5"></textarea>
         </fieldset>
         <fieldset>
