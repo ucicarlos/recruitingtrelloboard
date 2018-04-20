@@ -8,14 +8,29 @@ var xhr = new XMLHttpRequest();
 window.contact.addEventListener('submit', function (event) {
   // Stop the browser trying to submit the form itself.
   event.preventDefault();
-  t.get('member', 'private', 'token')
-  // Or if you needed to set/get a non-Trello secret token, like an oauth token, you could
-  // use t.storeSecret('key', 'value') and t.loadSecret('key')
+  var Promise = TrelloPowerUp.Promise;
+  var t = TrelloPowerUp.iframe();
+
+  var apiKey = '805550e507939ed01e3dd28d0d55f61a'; // Passed in as an argument to our iframe
+
+  var trelloAuthUrl = `https://trello.com/1/authorize?expiration=1hour&name=Example%20Trello%20Power-Up&scope=read&key=${apiKey}&callback_method=fragment&return_url=${window.location.origin}%2Fauth-success.html`;
+
+  var tokenLooksValid = function (token) {
+    // If this returns false, the Promise won't resolve.
+    return /^[0-9a-f]{64}$/.test(token);
+  }
+
+  t.authorize(trelloAuthUrl, {height: 680, width: 580, validToken: tokenLooksValid})
     .then(function (token) {
-      if (token) {
-        t.getAll()
-          .then(function (data) {
-            console.log(JSON.stringify(data, null, 2));
+      // store the token in Trello private Power-Up storage
+      return t.set('member', 'private', 'token', token)
+    })
+    .then(function () {
+      t.get('member', 'private', 'token')
+      // Or if you needed to set/get a non-Trello secret token, like an oauth token, you could
+      // use t.storeSecret('key', 'value') and t.loadSecret('key')
+        .then(function (token) {
+          if (token) {
             t.board('id', 'name')
               .then(function (board) {
                 let title = window.jobPosition.value + " | " + window.dueDate.value + " | " + window.company.value;
@@ -25,12 +40,13 @@ window.contact.addEventListener('submit', function (event) {
                     t.closeModal();
                   }
                 });
-                xhr.open("POST", "https://api.trello.com/1/lists?name=" + title + "&idBoard=" + board.id + "&key=" + data + "&token=" + token);
+                xhr.open("POST", "https://api.trello.com/1/lists?name=" + title + "&idBoard=" + board.id + "&key=805550e507939ed01e3dd28d0d55f61a&token=" + token);
                 xhr.send(data);
               });
-          });
-      }
-    })
+          }
+        })
+    });
+
 
 });
 
