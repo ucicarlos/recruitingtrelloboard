@@ -13,7 +13,7 @@ var boardButtonCallback = function (t) {
           return t.modal({
             url: './job_position.html', // The URL to load for the iframe
             accentColor: '#425381', // Optional color for the modal header
-            // width: '80%',
+            width: 400,
             background: '#fff',
             //height: 600, // Initial height for iframe; not used if fullscreen is true
             fullscreen: false, // Whether the modal should stretch to take up the whole screen
@@ -30,7 +30,7 @@ var boardButtonCallback = function (t) {
         callback: function (t) {
           return t.modal({
             url: './new_recruit.html', // The URL to load for the iframe
-            // width: '80%',
+            width: 400,
             accentColor: '#425381', // Optional color for the modal header
             //height: 600, // Initial height for iframe; not used if fullscreen is true
             fullscreen: false, // Whether the modal should stretch to take up the whole screen
