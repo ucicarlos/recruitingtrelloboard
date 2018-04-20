@@ -23,11 +23,11 @@ body {
 }
 
 #contact input[type="date"] {
-    max-width: 500px;
+    max-width: 100%;
 }
 
 .container1 {
-    max-width: 500px;
+    max-width: 100%;
     width: 100%;
     margin: 0 auto;
     position: relative;
@@ -51,7 +51,7 @@ body {
 #contact {
     background: #F9F9F9;
     padding: 25px;
-    margin: 150px 0;
+    margin: 30px 30px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
@@ -88,6 +88,7 @@ fieldset {
 #contact input[type="date"],
 #contact select,
 #contact textarea {
+    max-width: 100%;
     width: 100%;
     border: 1px solid #ccc;
     background: #FFF;
@@ -118,7 +119,7 @@ fieldset {
     cursor: pointer;
     width: 100%;
     border: none;
-    max-width: 500px;
+    max-width: 100%;
     background: #4CAF50;
     color: #FFF;
     margin: 0 0 5px;
