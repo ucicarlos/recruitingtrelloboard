@@ -13,7 +13,7 @@ window.contact.addEventListener('submit', function (event) {
   // use t.storeSecret('key', 'value') and t.loadSecret('key')
     .then(function (token) {
       if (token) {
-        t.get('board', 'shared', 'myKey')
+        t.getAll()
           .then(function (data) {
             console.log(JSON.stringify(data, null, 2));
             t.board('id', 'name')
