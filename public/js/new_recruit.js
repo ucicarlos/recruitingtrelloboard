@@ -35,5 +35,7 @@ t.render(function(){
         option.innerHTML = job.name.split(' | ')[0];
         select.appendChild(option);
       });
+    }).then(function () {
+      return t.sizeTo('#content1');
     })
 });
