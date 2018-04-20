@@ -29,5 +29,5 @@ t.render(function () {
   // and then called each time something changes that
   // you might want to react to, such as new data being
   // stored with t.set()
-  return t.sizeTo('#contact').done();
+  return t.sizeTo('#contact');
 });
