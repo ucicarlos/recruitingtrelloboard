@@ -1,7 +1,5 @@
 
-window.ready(function() {
-  window.loading.hide();
-});
+
 
 /* global TrelloPowerUp */
 var t = TrelloPowerUp.iframe();
@@ -13,7 +11,7 @@ var xhr = new XMLHttpRequest();
 window.contact.addEventListener('submit', function (event) {
   // Stop the browser trying to submit the form itself.
   event.preventDefault();
-  window.loading.show();
+  console.log(window.loading);
   let idList = window.jobPosition.value;
   let description = window.fullName.value + ", Phone: " + window.phone.value + ", Email: " + window.email.value + ", Comments: " + window.comments.value;
   xhr.addEventListener("readystatechange", function () {
