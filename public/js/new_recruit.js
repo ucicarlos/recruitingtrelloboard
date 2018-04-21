@@ -40,6 +40,7 @@ t.render(function () {
         select.appendChild(option);
       });
     }).then(function () {
+      window.loading.hidden = true
       return t.sizeTo('#contact');
     })
 });
