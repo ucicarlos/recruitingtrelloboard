@@ -1,3 +1,8 @@
+
+$(window).ready(function() {
+  $('#loading').hide();
+});
+
 /* global TrelloPowerUp */
 var t = TrelloPowerUp.iframe();
 var data = null;
@@ -8,6 +13,7 @@ var xhr = new XMLHttpRequest();
 window.contact.addEventListener('submit', function (event) {
   // Stop the browser trying to submit the form itself.
   event.preventDefault();
+  $('#loading').show();
   t.board('id', 'name')
     .then(function (board) {
       let title = window.jobPosition.value + " | " + window.dueDate.value + " | " + window.company.value;
