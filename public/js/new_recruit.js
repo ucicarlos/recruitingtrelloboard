@@ -11,7 +11,7 @@ var xhr = new XMLHttpRequest();
 window.contact.addEventListener('submit', function (event) {
   // Stop the browser trying to submit the form itself.
   event.preventDefault();
-  console.log(window.loading);
+  window.loading.hidden = false;
   let idList = window.jobPosition.value;
   let description = window.fullName.value + ", Phone: " + window.phone.value + ", Email: " + window.email.value + ", Comments: " + window.comments.value;
   xhr.addEventListener("readystatechange", function () {
@@ -40,7 +40,7 @@ t.render(function () {
         select.appendChild(option);
       });
     }).then(function () {
-      window.loading.hidden = true
+      window.loading.hidden = true;
       return t.sizeTo('#contact');
     })
 });

@@ -10,7 +10,7 @@ var xhr = new XMLHttpRequest();
 window.contact.addEventListener('submit', function (event) {
   // Stop the browser trying to submit the form itself.
   event.preventDefault();
-  console.log(window.loading);
+  window.loading.hidden = false;
   t.board('id', 'name')
     .then(function (board) {
       let title = window.jobPosition.value + " | " + window.dueDate.value + " | " + window.company.value;
@@ -32,6 +32,6 @@ t.render(function () {
   // and then called each time something changes that
   // you might want to react to, such as new data being
   // stored with t.set()
-  window.loading.hidden = true
+  window.loading.hidden = true;
   return t.sizeTo('#contact');
 });
