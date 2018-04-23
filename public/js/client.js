@@ -5,14 +5,16 @@ var RECRUIT_ICON = 'https://storage.googleapis.com/material-icons/external-asset
 
 
 var boardButtonCallback = function (t) {
+  let trelloAPIKey = '805550e507939ed01e3dd28d0d55f61a';
   return t.get('member', 'private', 'token')
     .then(function (token) {
       console.log(token);
       if (!token) {
         return t.popup({
           title: 'Authorize Your Account',
+          args: {apiKey: trelloAPIKey}, // Pass in API key to the iframe
           url: './authorize.html',
-          height: 75
+          height: 150
         });
       } else {
         return t.popup({
