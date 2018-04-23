@@ -6,58 +6,54 @@ var RECRUIT_ICON = 'https://storage.googleapis.com/material-icons/external-asset
 
 var boardButtonCallback = function (t) {
   return t.get('member', 'private', 'token')
-    .then(function(token){
+    .then(function (token) {
       console.log(token);
-      return [{
-        callback: function(context) {
-          if (!token) {
-            context.popup({
-              title: 'Authorize Your Account',
-              url: './authorize.html',
-              height: 75
-            });
-          } else {
-            return t.popup({
-              title: 'Select',
-              items: [
-                {
-                  callback: function (t) {
-                    return t.modal({
-                      url: './job_position.html', // The URL to load for the iframe
-                      accentColor: '#425381', // Optional color for the modal header
-                      width: 400,
-                      background: '#fff',
-                      //height: 600, // Initial height for iframe; not used if fullscreen is true
-                      fullscreen: false, // Whether the modal should stretch to take up the whole screen
-                      callback: () => console.log('Goodbye.'), // optional function called if user closes modal (via `X` or escape)
-                      title: 'Job Position!', // Optional title for modal header
-                      // You can add up to 3 action buttons on the modal header - max 1 on the right side.
-                      actions: [],
-                    })
-                  },
-                  text: 'New Job position'
-                },
-                {
-                  text: 'Add new recruit',
-                  callback: function (t) {
-                    return t.modal({
-                      url: './new_recruit.html', // The URL to load for the iframe
-                      width: 400,
-                      accentColor: '#425381', // Optional color for the modal header
-                      //height: 600, // Initial height for iframe; not used if fullscreen is true
-                      fullscreen: false, // Whether the modal should stretch to take up the whole screen
-                      callback: () => console.log('Goodbye.'), // optional function called if user closes modal (via `X` or escape)
-                      title: 'Add New Recruit!', // Optional title for modal header
-                      // You can add up to 3 action buttons on the modal header - max 1 on the right side.
-                      actions: [],
-                    });
-                  }
-                }
-              ]
-            });
-          }
-        }
-      }];
+      if (!token) {
+        return t.popup({
+          title: 'Authorize Your Account',
+          url: './authorize.html',
+          height: 75
+        });
+      } else {
+        return t.popup({
+          title: 'Select',
+          items: [
+            {
+              callback: function (t) {
+                return t.modal({
+                  url: './job_position.html', // The URL to load for the iframe
+                  accentColor: '#425381', // Optional color for the modal header
+                  width: 400,
+                  background: '#fff',
+                  //height: 600, // Initial height for iframe; not used if fullscreen is true
+                  fullscreen: false, // Whether the modal should stretch to take up the whole screen
+                  callback: () => console.log('Goodbye.'), // optional function called if user closes modal (via `X` or escape)
+                  title: 'Job Position!', // Optional title for modal header
+                  // You can add up to 3 action buttons on the modal header - max 1 on the right side.
+                  actions: [],
+                })
+              },
+              text: 'New Job position'
+            },
+            {
+              text: 'Add new recruit',
+              callback: function (t) {
+                return t.modal({
+                  url: './new_recruit.html', // The URL to load for the iframe
+                  width: 400,
+                  accentColor: '#425381', // Optional color for the modal header
+                  //height: 600, // Initial height for iframe; not used if fullscreen is true
+                  fullscreen: false, // Whether the modal should stretch to take up the whole screen
+                  callback: () => console.log('Goodbye.'), // optional function called if user closes modal (via `X` or escape)
+                  title: 'Add New Recruit!', // Optional title for modal header
+                  // You can add up to 3 action buttons on the modal header - max 1 on the right side.
+                  actions: [],
+                });
+              }
+            }
+          ]
+        });
+      }
     });
 };
 
@@ -72,7 +68,7 @@ TrelloPowerUp.initialize({
       callback: boardButtonCallback
     }];
   },
-  'authorization-status': function(t, options){
+  'authorization-status': function (t, options) {
     // Return a promise that resolves to an object with a boolean property 'authorized' of true or false
     // The boolean value determines whether your Power-Up considers the user to be authorized or not.
 
@@ -84,15 +80,15 @@ TrelloPowerUp.initialize({
     return t.get('member', 'private', 'token')
     // Or if you needed to set/get a non-Trello secret token, like an oauth token, you could
     // use t.storeSecret('key', 'value') and t.loadSecret('key')
-      .then(function(token){
-        if(token){
-          return { authorized: true };
+      .then(function (token) {
+        if (token) {
+          return {authorized: true};
         }
-        return { authorized: false };
+        return {authorized: false};
       });
     // You can also return the object synchronously if you know the answer synchronously.
   },
-  'show-authorization': function(t, options){
+  'show-authorization': function (t, options) {
     // Returns what to do when a user clicks the 'Authorize Account' link from the Power-Up gear icon
     // which shows when 'authorization-status' returns { authorized: false }.
 
@@ -106,7 +102,7 @@ TrelloPowerUp.initialize({
     if (trelloAPIKey) {
       return t.popup({
         title: 'My Auth Popup',
-        args: { apiKey: trelloAPIKey }, // Pass in API key to the iframe
+        args: {apiKey: trelloAPIKey}, // Pass in API key to the iframe
         url: './authorize.html', // Check out public/authorize.html to see how to ask a user to auth
         height: 140,
       });
