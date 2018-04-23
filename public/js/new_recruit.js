@@ -13,7 +13,7 @@ window.contact.addEventListener('submit', function (event) {
   event.preventDefault();
   window.loading.hidden = false;
   let idList = window.jobPosition.value;
-  let title = window.fullName.value + " | " + window.email.value + " | " + window.phone.value + " | " + window.email.value  + " | " + window.comments.value;
+  let title = window.fullName.value + " | " + window.email.value + " | " + window.phone.value + " | " + window.comments.value;
   xhr.addEventListener("readystatechange", function () {
     if (this.readyState === this.DONE) {
       t.closeModal();
