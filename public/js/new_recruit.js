@@ -13,14 +13,14 @@ window.contact.addEventListener('submit', function (event) {
   event.preventDefault();
   window.loading.hidden = false;
   let idList = window.jobPosition.value;
-  let description = window.fullName.value + ", Phone: " + window.phone.value + ", Email: " + window.email.value + ", Comments: " + window.comments.value;
+  let title = window.fullName.value + " | " + window.email.value + " | " + window.phone.value + " | " + window.email.value  + " | " + window.comments.value;
   xhr.addEventListener("readystatechange", function () {
     if (this.readyState === this.DONE) {
       t.closeModal();
     }
   });
 
-  xhr.open("POST", "https://api.trello.com/1/cards?name=" + window.fullName.value + "&desc=" + description + "&pos=bottom&idList=" + idList + "&keepFromSource=all&key=805550e507939ed01e3dd28d0d55f61a&token=f1635aff34517609c4f7c1ca29c2c75116fb56282fd9c3ea35028dbbf9d1e4bd");
+  xhr.open("POST", "https://api.trello.com/1/cards?name=" + title + "&pos=bottom&idList=" + idList + "&keepFromSource=all&key=805550e507939ed01e3dd28d0d55f61a&token=f1635aff34517609c4f7c1ca29c2c75116fb56282fd9c3ea35028dbbf9d1e4bd");
 
   xhr.send(data);
 });

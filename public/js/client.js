@@ -5,44 +5,63 @@ var RECRUIT_ICON = 'https://storage.googleapis.com/material-icons/external-asset
 
 
 var boardButtonCallback = function (t) {
-  return t.popup({
-    title: 'Select',
-    items: [
-      {
-        callback: function (t) {
-          return t.modal({
-            url: './job_position.html', // The URL to load for the iframe
-            accentColor: '#425381', // Optional color for the modal header
-            width: 400,
-            background: '#fff',
-            //height: 600, // Initial height for iframe; not used if fullscreen is true
-            fullscreen: false, // Whether the modal should stretch to take up the whole screen
-            callback: () => console.log('Goodbye.'), // optional function called if user closes modal (via `X` or escape)
-            title: 'Job Position!', // Optional title for modal header
-            // You can add up to 3 action buttons on the modal header - max 1 on the right side.
-            actions: [],
-          })
-        },
-        text: 'New Job position'
-      },
-      {
-        text: 'Add new recruit',
-        callback: function (t) {
-          return t.modal({
-            url: './new_recruit.html', // The URL to load for the iframe
-            width: 400,
-            accentColor: '#425381', // Optional color for the modal header
-            //height: 600, // Initial height for iframe; not used if fullscreen is true
-            fullscreen: false, // Whether the modal should stretch to take up the whole screen
-            callback: () => console.log('Goodbye.'), // optional function called if user closes modal (via `X` or escape)
-            title: 'Add New Recruit!', // Optional title for modal header
-            // You can add up to 3 action buttons on the modal header - max 1 on the right side.
-            actions: [],
-          });
+  console.log(opts.context.permissions.board);
+  if (opts.context.permissions.board !== 'write') {
+    return [];
+  }
+  return t.get('member', 'private', 'token')
+    .then(function(token){
+      return [{
+        callback: function(context) {
+          if (!token) {
+            context.popup({
+              title: 'Authorize Your Account',
+              url: './authorize.html',
+              height: 75
+            });
+          } else {
+            return t.popup({
+              title: 'Select',
+              items: [
+                {
+                  callback: function (t) {
+                    return t.modal({
+                      url: './job_position.html', // The URL to load for the iframe
+                      accentColor: '#425381', // Optional color for the modal header
+                      width: 400,
+                      background: '#fff',
+                      //height: 600, // Initial height for iframe; not used if fullscreen is true
+                      fullscreen: false, // Whether the modal should stretch to take up the whole screen
+                      callback: () => console.log('Goodbye.'), // optional function called if user closes modal (via `X` or escape)
+                      title: 'Job Position!', // Optional title for modal header
+                      // You can add up to 3 action buttons on the modal header - max 1 on the right side.
+                      actions: [],
+                    })
+                  },
+                  text: 'New Job position'
+                },
+                {
+                  text: 'Add new recruit',
+                  callback: function (t) {
+                    return t.modal({
+                      url: './new_recruit.html', // The URL to load for the iframe
+                      width: 400,
+                      accentColor: '#425381', // Optional color for the modal header
+                      //height: 600, // Initial height for iframe; not used if fullscreen is true
+                      fullscreen: false, // Whether the modal should stretch to take up the whole screen
+                      callback: () => console.log('Goodbye.'), // optional function called if user closes modal (via `X` or escape)
+                      title: 'Add New Recruit!', // Optional title for modal header
+                      // You can add up to 3 action buttons on the modal header - max 1 on the right side.
+                      actions: [],
+                    });
+                  }
+                }
+              ]
+            });
+          }
         }
-      }
-    ]
-  });
+      }];
+    });
 };
 
 // We need to call initialize to get all of our capability handles set up and registered with Trello

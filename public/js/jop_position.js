@@ -20,7 +20,7 @@ window.contact.addEventListener('submit', function (event) {
           t.closeModal();
         }
       });
-      xhr.open("POST", "https://api.trello.com/1/lists?name="+ title + "&idBoard=" + board.id + "&key=805550e507939ed01e3dd28d0d55f61a&token=f1635aff34517609c4f7c1ca29c2c75116fb56282fd9c3ea35028dbbf9d1e4bd");
+      xhr.open("POST", "https://api.trello.com/1/lists?name="+ title + "&idBoard=" + board.id + "&pos=bottom&key=805550e507939ed01e3dd28d0d55f61a&token=f1635aff34517609c4f7c1ca29c2c75116fb56282fd9c3ea35028dbbf9d1e4bd");
       xhr.send(data);
     });
 });
