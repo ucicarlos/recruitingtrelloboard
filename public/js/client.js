@@ -14,7 +14,7 @@ var boardButtonCallback = function (t) {
           title: 'Authorize Your Account',
           args: {apiKey: trelloAPIKey}, // Pass in API key to the iframe
           url: './authorize.html',
-          height: 150
+          height: 200
         });
       } else {
         return t.popup({
