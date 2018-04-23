@@ -5,12 +5,9 @@ var RECRUIT_ICON = 'https://storage.googleapis.com/material-icons/external-asset
 
 
 var boardButtonCallback = function (t) {
-  console.log(opts.context.permissions.board);
-  if (opts.context.permissions.board !== 'write') {
-    return [];
-  }
   return t.get('member', 'private', 'token')
     .then(function(token){
+      console.log(token);
       return [{
         callback: function(context) {
           if (!token) {
